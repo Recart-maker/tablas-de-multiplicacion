@@ -1,0 +1,187 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.multiplication-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.multiplication-card::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    background: inherit;
+    filter: blur(10px);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.multiplication-card:hover {
+    transform: rotateY(10deg) rotateX(10deg) translateZ(10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.even {
+    background: linear-gradient(45deg, #4CAF50, #8BC34A);
+}
+
+.odd {
+    background: linear-gradient(45deg, #2196F3, #3F51B5);
+}
+
+input[type="range"] {
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #FF5722;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Nuevos estilos para iconos */
+.icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform-style: preserve-3d;
+}
+
+.icon:hover {
+    transform: scale(1.2) translateZ(10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Colores únicos para iconos superiores */
+.icons-top .icon:nth-child(1) { background: linear-gradient(45deg, #FF6B6B, #FF8E8E); }
+.icons-top .icon:nth-child(2) { background: linear-gradient(45deg, #4ECDC4, #45B7AF); }
+.icons-top .icon:nth-child(3) { background: linear-gradient(45deg, #FFD93D, #FFE55C); }
+.icons-top .icon:nth-child(4) { background: linear-gradient(45deg, #6C5CE7, #8476FF); }
+.icons-top .icon:nth-child(5) { background: linear-gradient(45deg, #FF7675, #FF9393); }
+
+/* Colores únicos para iconos inferiores */
+.icons-bottom .icon:nth-child(1) { background: linear-gradient(45deg, #00B894, #00CEA9); }
+.icons-bottom .icon:nth-child(2) { background: linear-gradient(45deg, #0984E3, #1B9CFC); }
+.icons-bottom .icon:nth-child(3) { background: linear-gradient(45deg, #FDCB6E, #FFEAA7); }
+.icons-bottom .icon:nth-child(4) { background: linear-gradient(45deg, #D63031, #FF4757); }
+.icons-bottom .icon:nth-child(5) { background: linear-gradient(45deg, #A55EEA, #B983FF); }
+
+/* Modificación al contenedor principal */
+.container {
+    position: relative;
+    padding: 40px 0;
+}
+
+/* Añadir efecto parallax */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, 
+        rgba(255,255,255,0.1) 0%,
+        rgba(0,0,0,0.3) 100%);
+    z-index: 0;
+}
+
+/* Ajustar posición del contenido */
+h1, .controls, .grid-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mejorar tarjetas de multiplicación */
+.multiplication-card {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* Modificación del grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 20px;
+    padding: 30px 0;
+    position: relative;
+}
+
+/* Nuevos estilos para separar visualmente las filas */
+.grid-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+/* Animación modificada para efecto cascada */
+/* Mover la función animateCards a un archivo JavaScript separado */

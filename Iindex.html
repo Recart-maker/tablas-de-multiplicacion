@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas de Multiplicar 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Iconos superiores -->
+        <div class="icons-container icons-top">
+            <div class="icon"><i class="fas fa-star"></i></div>
+            <div class="icon"><i class="fas fa-heart"></i></div>
+            <div class="icon"><i class="fas fa-bolt"></i></div>
+            <div class="icon"><i class="fas fa-cloud"></i></div>
+            <div class="icon"><i class="fas fa-moon"></i></div>
+        </div>
+
+        <h1>Aprende las Tablas de Multiplicar</h1>
+        <div class="controls">
+            <input type="range" id="tableRange" min="1" max="12" value="1">
+            <span id="currentTable">1</span>
+            <button onclick="generateTable()">Generar Tabla</button>
+        </div>
+        <div id="multiplicationGrid" class="grid-container"></div>
+
+        <!-- Iconos inferiores -->
+        <div class="icons-container icons-bottom">
+            <div class="icon"><i class="fas fa-sun"></i></div>
+            <div class="icon"><i class="fas fa-leaf"></i></div>
+            <div class="icon"><i class="fas fa-gem"></i></div>
+            <div class="icon"><i class="fas fa-fire"></i></div>
+            <div class="icon"><i class="fas fa-water"></i></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
