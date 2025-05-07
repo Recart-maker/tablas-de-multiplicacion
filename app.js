@@ -33,9 +33,7 @@ function animateCards() {
     });
 }
 
-tableRange.addEventListener('input', () => {
-    currentTable.textContent = tableRange.value;
-});
+tableRange.addEventListener('input', generateTable);
 
 // Generar tabla inicial al cargar la página
 generateTable();
